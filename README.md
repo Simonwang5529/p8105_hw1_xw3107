@@ -9,8 +9,6 @@ This repository contains my **Homework 1** submission for P8105.
 
 - **p8105_hw1_xw3107.html**  
   The knitted HTML output of the R Markdown file.  
-  *Tip:* You can preview this file directly in your browser.  
-  If GitHub Pages is enabled for this repo, you can view it online [here](https://your-username.github.io/p8105_hw1_xw3107/p8105_hw1_xw3107.html).
 
 - **temp_vs_time.png**  
   A scatterplot of hourly temperature vs. time, colored by humidity, exported using `ggsave()`.
