@@ -1,0 +1,74 @@
+---
+title: "p8105_hw1_xw3107"
+output: html_document
+date: "2025-09-12"
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(moderndive)
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+# Problem 1 
+```{r Early_January_Weather, echo = TRUE}
+data("early_january_weather")
+
+#the variables in this dataset, including names / values of important variables
+summary(early_january_weather)
+#the size of the dataset (using nrow and ncol)
+nrow(early_january_weather)
+ncol(early_january_weather)
+#the mean temperature
+mean(early_january_weather$temp, na.rm = TRUE)
+```
+The early_january_weather dataset contains 358 rows and 15 columns of hourly weather observations  during the first 15 days of January 2013. The dataset contains the parameters of time, temprature, dewp, humidity, parameters of wind, presure and so on. The mean value of the temprature in the time period is 39.58212 
+ 
+```{r scatterplot: temp vs time_hour, echo = TRUE}
+
+p = ggplot(early_january_weather, aes(x = time_hour, y = temp, color = humid)) +
+  geom_point(size = 2, alpha = 0.7) +
+  labs(
+    title = "Hourly Temperature vs Time",
+    x = "Date & Time",
+    y = "Temperature (°F)",
+    color = "Humidity (%)"
+  ) +
+  theme_minimal()
+
+print(p)
+
+# export the plot to project directory
+ggsave("temp_vs_time.png", plot = p, width = 8, height = 5)
+```
+
+
+# Problem 2
+
+```{r Generating df}
+set.seed(101) # for reproducibility
+
+df = tibble(
+  num_var  = rnorm(10),
+  log_var  = rnorm(10) > 0,
+  char_var = sample(letters[1:27], size = 10, replace = TRUE),
+  fac_var  = factor(sample(c("A","B","C"), size = 10, replace = TRUE))
+)
+#check mean value for each kind of var
+mean(pull(df, num_var))
+mean(pull(df, log_var))
+mean(pull(df, char_var))
+mean(pull(df, fac_var))
+```
+There are warnings occured when we try to calculate mean on characters and factor variables.
+```{r Converting variables, echo = TRUE, results='hide'}
+as.numeric(pull(df, log_var))    # TRUE is 1, FALSE is 0
+as.numeric(pull(df, char_var))  
+as.numeric(pull(df, fac_var)) # A is 1, B is 2, C is 3
+```
+Unable to transfer Char to NUmeric varaible.
+This result demonstrates why mean() works for numeric/logical but not for character or factor variables without explicit conversion
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
