@@ -1,6 +1,10 @@
 ---
 title: "p8105_hw1_xw3107"
-output: html_document
+author: "Xiling Wang"
+output:
+  html_document:
+    toc: true
+    toc_float: true
 date: "2025-09-12"
 ---
 
@@ -71,4 +75,3 @@ Unable to transfer Char to NUmeric varaible.
 This result demonstrates why mean() works for numeric/logical but not for character or factor variables without explicit conversion
 
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
