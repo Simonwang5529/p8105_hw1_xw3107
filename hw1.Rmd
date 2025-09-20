@@ -46,6 +46,8 @@ print(p)
 # export the plot to project directory
 ggsave("temp_vs_time.png", plot = p, width = 8, height = 5)
 ```
+Describe patterns that are apparent in this plot
+：as the time goes from jan01 to Jan15, the temprature shows a trend of increasing, and the higher the temp is, the higher the humidity is at most of the time.
 
 
 # Problem 2
